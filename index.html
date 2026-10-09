@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ATOMIC HABITS เพราะชีวิตดีได้กว่าที่เป็น | James Clear</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@500;600;700&family=Sarabun:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --green: #1f6f50; --deep: #123b2c; --sun: #f2c230; --sage: #eef4ee; --line: #d6e3d9; --text: #1d2b24; }
+    body { font-family: "Sarabun", sans-serif; color: var(--text); font-size: 1.05rem; line-height: 1.8; background: #fff; }
+    h1, h2, h3, .brand, .label-en { font-family: "Prompt", sans-serif; }
+    :focus-visible { outline: 3px solid var(--sun); outline-offset: 2px; }
+
+    /* Header */
+    .site-header { background: rgba(255,255,255,.96); border-bottom: 1px solid var(--line); }
+    .brand { font-weight: 700; color: var(--deep); text-decoration: none; letter-spacing: .03em; }
+    .site-header .nav-link { color: var(--text); }
+    .site-header .nav-link:hover { color: var(--green); }
+    .btn-main { background: var(--green); color: #fff; border: 0; border-radius: 50rem; padding: .55rem 1.5rem; font-weight: 600; }
+    .btn-main:hover { background: var(--deep); color: #fff; }
+    .btn-sun { background: var(--sun); color: var(--deep); border: 0; border-radius: 50rem; padding: .7rem 1.8rem; font-weight: 600; }
+    .btn-sun:hover { background: #ffd24f; color: var(--deep); }
+
+    /* Hero */
+    .hero { position: relative; min-height: 78vh; display: flex; align-items: center; color: #fff; overflow: hidden; background: var(--deep); }
+    /* 📷 รูปที่ 1: พื้นหลัง Hero (ภาพกว้าง แนวนอน เช่น คนกำลังอ่านหนังสือ/ทำกิจวัตรยามเช้า) */
+    .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .45; }
+    .hero .container { position: relative; z-index: 1; }
+    .hero h1 { font-weight: 700; font-size: clamp(2.3rem, 6vw, 4.2rem); line-height: 1.15; }
+    .hero h1 small { display: block; margin-top: .8rem; font-size: .38em; font-weight: 500; color: var(--sun); }
+    .hero .by { color: #d7e8dd; }
+    .cover { max-width: 270px; margin-inline: auto; }
+    /* 📷 รูปที่ 2: ปกหนังสือ (แนวตั้ง สัดส่วนประมาณ 3:4) */
+    .cover img { width: 100%; aspect-ratio: 3 / 4.3; object-fit: cover; border-radius: .4rem; background: var(--sun); box-shadow: 0 18px 40px rgba(0,0,0,.35); }
+
+    /* ตัวอักษรวิ่ง */
+    .marquee { background: var(--sun); color: var(--deep); overflow: hidden; white-space: nowrap; padding: .6rem 0; }
+    .marquee-track { display: inline-flex; animation: slide 28s linear infinite; }
+    .marquee span { font-family: "Prompt", sans-serif; font-weight: 600; font-size: 1.15rem; padding-right: 2.5rem; }
+    @keyframes slide { to { transform: translateX(-50%); } }
+
+    section { padding: 5rem 0; }
+    .label-en { font-weight: 700; font-size: clamp(2rem, 5vw, 3rem); color: var(--green); line-height: 1.1; margin: 0; }
+    .label-th { color: #5b6e63; margin-bottom: 2rem; }
+
+    /* แนะนำหนังสือ */
+    .lead-title { font-family: "Prompt", sans-serif; font-weight: 600; font-size: clamp(1.4rem, 3.2vw, 2rem); line-height: 1.5; }
+    /* 📷 รูปที่ 3: รูปประกอบส่วนแนะนำ (เช่น ภาพหนังสือวางบนโต๊ะ หรือภาพการทำงาน) */
+    .intro-img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 1rem; background: var(--line); }
+
+    /* ตัวเลข */
+    .stats { background: var(--sage); padding: 3.5rem 0; }
+    .stat-num { font-family: "Prompt", sans-serif; font-weight: 700; font-size: clamp(2.4rem, 6vw, 3.6rem); color: var(--green); line-height: 1.1; }
+    .stat-box { background: #fff; border: 2px solid var(--green); border-radius: 1rem; padding: 1rem .5rem; height: 100%; }
+
+    /* Accordion 5 ข้อ */
+    .accordion { --bs-accordion-border-color: var(--line); --bs-accordion-active-bg: var(--sage); --bs-accordion-active-color: var(--deep); --bs-accordion-btn-focus-box-shadow: none; }
+    .accordion-button { font-family: "Prompt", sans-serif; font-weight: 600; font-size: 1.1rem; gap: 1rem; }
+    .accordion-button i { font-size: 1.6rem; color: var(--green); }
+    .accordion-body { color: #3d4f45; padding-left: 4.2rem; }
+
+    /* สารบัญ */
+    .toc-card { display: block; height: 100%; background: #fff; border: 1px solid var(--line); border-top: 5px solid var(--green); border-radius: .75rem; padding: 1.25rem; }
+    .toc-card.base, .toc-card.adv { border-top-color: var(--sun); }
+    .toc-card .tag { display: inline-block; font-family: "Prompt", sans-serif; font-weight: 600; font-size: .9rem; color: var(--green); margin-bottom: .25rem; }
+    .toc-card p { margin: 0; line-height: 1.6; }
+
+    /* CTA ปิดท้าย */
+    .cta { background: var(--deep); color: #fff; text-align: center; }
+    .cta h2 { font-family: "Prompt", sans-serif; font-weight: 700; font-size: clamp(1.7rem, 4vw, 2.6rem); }
+    footer { background: #0b261c; color: #a8c4b5; text-align: center; padding: 1.5rem 0; font-size: .95rem; }
+
+    @media (max-width: 767.98px) {
+      section { padding: 3rem 0; }
+      .hero { min-height: auto; padding: 3rem 0; }
+      .accordion-body { padding-left: 1.25rem; }
+    }
+    @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <nav class="site-header navbar navbar-expand-md sticky-top">
+    <div class="container">
+      <a class="brand navbar-brand" href="#top">ATOMIC HABITS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="เปิดเมนู"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto align-items-md-center gap-md-2">
+          <li class="nav-item"><a class="nav-link" href="#about">เกี่ยวกับหนังสือ</a></li>
+          <li class="nav-item"><a class="nav-link" href="#highlights">สิ่งที่จะได้พบ</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contents">สารบัญ</a></li>
+          <li class="nav-item mt-2 mt-md-0"><a class="btn btn-main" href="https://www.naiin.com/product/detail/508699?srsltid=AU7gw4VbPjQjTGLAdU83T5OFWfBP4rZN-9aaEHEQ6PIkG-ldN7MBH8V8">สั่งซื้อหนังสือ</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero" id="top">
+    <img class="hero-bg" src="images/hero.jpg" alt="">
+    <div class="container py-4">
+      <div class="row align-items-center g-5">
+        <div class="col-md-7 order-2 order-md-1">
+          <h1>ATOMIC HABITS <small>เพราะชีวิตดีได้กว่าที่เป็น</small></h1>
+          <p class="by mt-4 mb-1">ผู้เขียน: James Clear (เจมส์ เคลียร์)</p>
+          <p class="by mb-1">สำนักพิมพ์: เชนจ์พลัส / Change+</p>
+          <p class="by mb-4">หมวดหมู่: หนังสือทั่วไป, จิตวิทยา การพัฒนาตัวเอง, การพัฒนาตัวเอง / how to</p>
+          <a href="#about" class="btn btn-sun">ดูรายละเอียดหนังสือ</a>
+        </div>
+        <div class="col-md-5 order-1 order-md-2">
+          <div class="cover"><img src="images/1000233967_front_XXXL.webp" alt="ปกหนังสือ Atomic Habits เพราะชีวิตดีได้กว่าที่เป็น"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ตัวอักษรวิ่ง -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>ดีขึ้นวันละ 1%</span><span>ATOMIC HABITS</span><span>ดีขึ้นวันละ 1%</span><span>ATOMIC HABITS</span><span>ดีขึ้นวันละ 1%</span><span>ATOMIC HABITS</span><span>ดีขึ้นวันละ 1%</span><span>ATOMIC HABITS</span>
+      <span>ดีขึ้นวันละ 1%</span><span>ATOMIC HABITS</span><span>ดีขึ้นวันละ 1%</span><span>ATOMIC HABITS</span><span>ดีขึ้นวันละ 1%</span><span>ATOMIC HABITS</span><span>ดีขึ้นวันละ 1%</span><span>ATOMIC HABITS</span>
+    </div>
+  </div>
+
+  <!-- เกี่ยวกับหนังสือ -->
+  <section id="about">
+    <div class="container">
+      <h2 class="label-en">About</h2>
+      <p class="label-th">เกี่ยวกับหนังสือเล่มนี้</p>
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-7">
+          <p class="lead-title">หากคุณพยายามเปลี่ยนแปลงตัวเองแต่ไม่สำเร็จสักที หนังสือเล่มนี้ช่วยคุณได้! ด้วยการพัฒนาตัวเองให้ดีขึ้นเพียงวันละ 1% ไม่ว่าเป้าหมายในชีวิตของคุณคืออะไร คุณทำสำเร็จได้อย่างแน่นอน!</p>
+          <p>จากหนังสือขายดีระดับโลกที่มียอดขายหลายล้านเล่ม แปลไปแล้วกว่า 40 ภาษา การันตีความดีงามโดย "New York Times Bestseller" นี่คือหนังสือเกี่ยวกับการเปลี่ยนแปลงนิสัย โดยใช้หลักการทางวิทยาศาสตร์มาอ้างอิงว่าการเปลี่ยนแปลงเล็กๆ ที่เล็กมากๆ จะนำไปสู่การเปลี่ยนแปลงที่ใหญ่ขึ้นได้อย่างไร ซึ่งหลักการนี้สามารถประยุกต์ใช้ได้กับทุกเรื่อง เช่น การทำงาน การเงิน ความสัมพันธ์ระหว่างบุคคล สุขภาพ ความคิดสร้างสรรค์ ไม่ว่าเป้าหมายของเราคืออะไรก็ตาม หนังสือเล่มนี้จะช่วยเปลี่ยนแปลงนิสัยและคงนิสัยดีๆ ไว้ได้นานเท่านาน</p>
+        </div>
+        <div class="col-lg-5">
+          <img class="intro-img" src="images/bdb544482685e072cdf38039e31261d1.jpg" alt="ภาพประกอบหนังสือ Atomic Habits">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ตัวเลข -->
+ <div class="row text-center g-4">
+  <div class="col-12 col-md-4">
+    <div class="stat-box">
+      <div class="stat-num"><span data-count="40">40</span>+</div>
+      <div>ภาษาที่แปลแล้ว</div>
+    </div>
+  </div>
+  <div class="col-12 col-md-4">
+    <div class="stat-box">
+      <div class="stat-num"><span data-count="1">1</span>%</div>
+      <div>ที่ดีขึ้นในแต่ละวัน</div>
+    </div>
+  </div>
+  <div class="col-12 col-md-4">
+    <div class="stat-box">
+      <div class="stat-num"><i class="bi bi-award-fill"></i></div>
+      <div>New York Times Bestseller</div>
+    </div>
+  </div>
+</div>
+
+  <!-- 5 หัวข้อ เรียงลงมา -->
+  <section id="highlights">
+    <div class="container" style="max-width: 900px;">
+      <h2 class="label-en">Highlights</h2>
+      <p class="label-th">ในเล่มนี้คุณจะได้พบกับ</p>
+      <div class="accordion" id="points">
+        <div class="accordion-item">
+          <h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#p1" aria-expanded="true" aria-controls="p1"><i class="bi bi-graph-up-arrow"></i>กฎ 1% พลิกชีวิตสู่ความสำเร็จที่ยั่งยืน</button></h3>
+          <div id="p1" class="accordion-collapse collapse show"><div class="accordion-body">ค้นพบความลับของการพัฒนาตัวเองเพียงวันละ 1% ที่ดูเหมือนเล็กน้อย แต่เมื่อทำอย่างต่อเนื่อง จะสร้างผลลัพธ์ที่ยิ่งใหญ่แบบทวีคูณจนคุณคาดไม่ถึง</div></div>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#p2" aria-expanded="false" aria-controls="p2"><i class="bi bi-gear-wide-connected"></i>เลิกยึดติดกับ "เป้าหมาย" แต่จงสร้าง "ระบบ"</button></h3>
+          <div id="p2" class="accordion-collapse collapse"><div class="accordion-body">เรียนรู้วิธีปลดล็อกตัวเองจากความกดดัน เปลี่ยนมาโฟกัสที่การสร้างระบบนิสัยในชีวิตประจำวัน ที่จะพาคุณไปสู่ความสำเร็จแบบอัตโนมัติโดยไม่ต้องพึ่งพิงแค่แรงบันดาลใจ</div></div>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#p3" aria-expanded="false" aria-controls="p3"><i class="bi bi-lightbulb-fill"></i>เจาะลึก 4 กฎทองของการเปลี่ยนพฤติกรรม</button></h3>
+          <div id="p3" class="accordion-collapse collapse"><div class="accordion-body">พบกับเทคนิคทางจิตวิทยาที่นำไปปรับใช้ได้ทันที เพื่อสร้างนิสัยที่ดีให้เป็นเรื่อง "ง่ายและน่าดึงดูด" พร้อมกับกำจัดนิสัยแย่ๆ ให้กลายเป็นเรื่อง "ยากและน่าเบื่อ" อย่างถาวร</div></div>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#p4" aria-expanded="false" aria-controls="p4"><i class="bi bi-person-heart"></i>เปลี่ยนตัวตนจากภายใน สู่เวอร์ชันที่ดีที่สุดของคุณ</button></h3>
+          <div id="p4" class="accordion-collapse collapse"><div class="accordion-body">เคล็ดลับไม่ใช่แค่การเปลี่ยนสิ่งที่คุณทำ แต่คือการเปลี่ยน "สิ่งที่คุณเชื่อว่าคุณเป็น" เพื่อหล่อหลอมตัวตนใหม่ที่คุณภาคภูมิใจจากรากฐานอย่างแท้จริง</div></div>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#p5" aria-expanded="false" aria-controls="p5"><i class="bi bi-house-heart-fill"></i>ออกแบบสิ่งแวดล้อมเพื่อเอาชนะความขี้เกียจ</button></h3>
+          <div id="p5" class="accordion-collapse collapse"><div class="accordion-body">หมดปัญหาความตั้งใจพังทลายกลางทาง ด้วยทริคการจัดสภาพแวดล้อมรอบตัวที่จะช่วยลดการต่อต้าน ทำให้การลงมือทำสิ่งดีๆ เป็นเรื่องธรรมชาติโดยไม่ต้องฝืนตัวเอง</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- สารบัญ -->
+  <section id="contents" style="background: var(--sage);">
+    <div class="container">
+      <h2 class="label-en">Contents</h2>
+      <p class="label-th">สารบัญ : ATOMIC HABITS เพราะชีวิตดีได้กว่าที่เป็น</p>
+      <div class="row g-3">
+        <div class="col-12 col-md-6 col-lg-4"><div class="toc-card base"><span class="tag">แนวคิดพื้นฐาน</span><p>ทำไมการเปลี่ยนแปลงเล็กๆ จึงทำให้เกิดความแตกต่างอันน่าทึ่ง</p></div></div>
+        <div class="col-12 col-md-6 col-lg-4"><div class="toc-card"><span class="tag">กฎข้อที่ 1</span><p>ทำให้เห็นชัดเจน</p></div></div>
+        <div class="col-12 col-md-6 col-lg-4"><div class="toc-card"><span class="tag">กฎข้อที่ 2</span><p>ทำให้น่าดึงดูดใจ</p></div></div>
+        <div class="col-12 col-md-6 col-lg-4"><div class="toc-card"><span class="tag">กฎข้อที่ 3</span><p>ทำให้เป็นเรื่องง่าย</p></div></div>
+        <div class="col-12 col-md-6 col-lg-4"><div class="toc-card"><span class="tag">กฎข้อที่ 4</span><p>ทำให้น่าพึงพอใจ</p></div></div>
+        <div class="col-12 col-md-6 col-lg-4"><div class="toc-card adv"><span class="tag">เทคนิคที่ให้ผลแบบก้าวกระโดด</span><p>วิธีเปลี่ยนจากการเป็นคนนิสัยดีไปเป็นคนที่มีนิสัยดีเลิศ</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA ปิดท้าย -->
+  <section class="cta" id="order">
+    <div class="container">
+      <h2 class="mb-3">เริ่มดีขึ้นวันละ 1% ตั้งแต่วันนี้</h2>
+      <p class="mb-4">หนังสือเกี่ยวกับการเปลี่ยนแปลงนิสัย ที่จะช่วยให้คุณคงนิสัยดีๆ ไว้ได้นานเท่านาน</p>
+      <a href="https://www.naiin.com/product/detail/508699?srsltid=AU7gw4VbPjQjTGLAdU83T5OFWfBP4rZN-9aaEHEQ6PIkG-ldN7MBH8V8" class="btn btn-sun">สั่งซื้อหนังสือ</a>
+    </div>
+  </section>
+
+  <footer><div class="container">ATOMIC HABITS เพราะชีวิตดีได้กว่าที่เป็น &mdash; James Clear | เชนจ์พลัส / Change+</div></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // ตัวเลขนับขึ้นเมื่อเลื่อนมาถึง
+    const counters = document.querySelectorAll('[data-count]');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        const el = e.target, end = +el.dataset.count;
+        io.unobserve(el);
+        if (reduce) return;
+        let n = 0; const step = Math.max(1, Math.ceil(end / 30));
+        const t = setInterval(() => { n = Math.min(end, n + step); el.textContent = n; if (n >= end) clearInterval(t); }, 40);
+      });
+    });
+    counters.forEach((c) => io.observe(c));
+  </script>
+</body>
+</html>
